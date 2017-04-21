@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
 <!--<![endif]-->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -71,26 +70,35 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
+                        <h4><small>DETAILS</small></h4>
+                        <!-- <hr> -->
                         <div class="row">
                             <div class="col-sm-5">
                                 <img id="poster-modal">
                             </div>
                             <div class="col-sm-6 offset-sm-1">
-                                <h5>Overview</h5>
+                                <h5>Overview:</h5>
                                 <p class="lead" id="movie-overview"></p>
-                                <h5>Gener</h5>
+                                <h5>Gener:</h5>
                                 <p class="lead" id="movie-gener">ome text</p>
-                                <h5>Original Language</h5>
+                                <h5>Original Language:</h5>
                                 <p class="lead" id="movie-original-lang">ome text</p>
-                                <h5>Relaease Date</h5>
+                                <h5>Relaease Date:</h5>
                                 <p class="lead" id="movie-release-date">ome text</p>
                             </div>
                         </div>
+                        <h4><small>TRAILER</small></h4>
                         <hr>
                         <div class="row">
                             <div class="col-sm-10 offset-sm-1">
                                 <iframe id="movie-trailer" width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
                             </div>
+                        </div>
+                        <h4><small>REVIEWS</small></h4>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-10 offset-sm-1" id="reviews-container">
+                          </div>
                         </div>
                     </div>
                 </div>

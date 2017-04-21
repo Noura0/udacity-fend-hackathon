@@ -3,45 +3,8 @@
     requestTopRatedMovies();
     //Handler for clickin on poster
     $(document).on("click", ".movie-poster", function(event) {
-        var id = $(this).attr('movie-id');
-        $.ajax({
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            url: 'http://api.themoviedb.org/3/movie/' + id + '?api_key=bab007b9a6288af1455b8cee1f4f9d36',
-            param: {},
-            success: function(data) {
-                if (data) {
-                    $('#movieName').html(data.original_title);
-                    $('#poster-modal').attr('src', 'https://image.tmdb.org/t/p/w342/' + data.poster_path);
-                    $('#movie-overview').html(data.overview);
-                    $.each(data.genres, function(key, value) {
-                        $('#movie-gener').html($('#movie-gener').html() + value.name + ',');
-                    });
-                    $('#movie-original-lang').html(data.original_language);
-                    $('#movie-release-date').html(data.release_date);
-
-                    //request trailer
-                    $.ajax({
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        url: 'http://api.themoviedb.org/3/movie/' + id + '/videos?api_key=bab007b9a6288af1455b8cee1f4f9d36',
-                        param: {},
-                        success: function(data) {
-                            if (data) {
-                                $('#movie-trailer').attr('src', $('#movie-trailer').attr('src') + data.results[0].key);
-                            }
-                        },
-                        fail: function() {
-
-                        }
-                    });
-                    //-------
-                }
-            },
-            fail: function() {
-
-            }
-        });
+        var movieId = $(this).attr('movie-id');
+        getMovieDetails(movieId);
     });
     //Click event listener for the navba item
     $('.nav-item').on('click', function() {
@@ -112,4 +75,64 @@ function requestTopRatedMovies(){
 
         }
     });
+}
+
+function getMovieDetails(id){
+    $.ajax({
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        url: 'http://api.themoviedb.org/3/movie/' + id + '?api_key=bab007b9a6288af1455b8cee1f4f9d36',
+        param: {},
+        success: function(data) {
+            if (data) {
+                $('#movieName').html(data.original_title);
+                $('#poster-modal').attr('src', 'https://image.tmdb.org/t/p/w342/' + data.poster_path);
+                $('#movie-overview').html(data.overview);
+                $.each(data.genres, function(key, value) {
+                    $('#movie-gener').html($('#movie-gener').html() + value.name + ',');
+                });
+                $('#movie-original-lang').html(data.original_language);
+                $('#movie-release-date').html(data.release_date);
+
+                //request trailer
+                $.ajax({
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    url: 'http://api.themoviedb.org/3/movie/' + id + '/videos?api_key=bab007b9a6288af1455b8cee1f4f9d36',
+                    param: {},
+                    success: function(data) {
+                        if (data) {
+                            $('#movie-trailer').attr('src', $('#movie-trailer').attr('src') + data.results[0].key);
+                        }
+                    },
+                    fail: function() {
+
+                    }
+                });
+                //-------
+                //request reviews
+                $.ajax({
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    url: 'http://api.themoviedb.org/3/movie/'+id+'/reviews?api_key=bab007b9a6288af1455b8cee1f4f9d36',
+                    param: {},
+                    success: function(data) {
+                        if (data) {
+                            $.each(data.results, function(key, value){
+                                $('#reviews-container').append('<blockquote id="review"><p id="review-text">'+value.content+'</p><footer id="reviewer">-'+value.author+'</footer></blockquote>');
+                                // $('#reviews-container').append('<hr>');
+                            });
+                        }
+                    },
+                    fail: function() {
+
+                    }
+                });
+                //-------
+            }
+        },
+        fail: function() {
+
+        }
+});
 }

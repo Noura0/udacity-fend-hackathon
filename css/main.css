@@ -17,8 +17,11 @@
     background-image: unset;
     opacity: 1;
 }
-
-
+blockquote{
+    background-color: #eee;
+    padding: 8px;
+    margin-top: 25px;
+}
 
 
 
