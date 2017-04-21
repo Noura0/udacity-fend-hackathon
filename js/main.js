@@ -119,7 +119,7 @@ function getMovieDetails(id){
                     success: function(data) {
                         if (data) {
                             $.each(data.results, function(key, value){
-                                $('#reviews-container').append('<blockquote id="review"><p id="review-text">'+value.content+'</p><footer id="reviewer">-'+value.author+'</footer></blockquote>');
+                                $('#reviews-container').append('<blockquote><p class="review-text">'+value.content+'</p><footer class="reviewer">-'+value.author+'</footer></blockquote>');
                                 // $('#reviews-container').append('<hr>');
                             });
                         }

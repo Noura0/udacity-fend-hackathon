@@ -22,7 +22,9 @@ blockquote{
     padding: 8px;
     margin-top: 25px;
 }
-
+.reviewer{
+    font-weight: bold;
+}
 
 
 
