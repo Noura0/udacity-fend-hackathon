@@ -1,0 +1,116 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+        <div class="container clearfix">
+            <a class="navbar-brand" href="index.html">The Movie DB</a>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" id="tab-home" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-popular" href="#">Popular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-top-rated" href="#">Top Rated</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Hello!</h1>
+            <p>Here where you can discover the new top rated movies and the popluar ones of all time.</p>
+            <p><a class="btn btn-outline-primary btn-lg" href="#posters-conatiner" role="button">Browse &raquo;</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container" id="posters-conatiner">
+    </div>
+    <!-- /container -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="movieDetails" tabindex="-1" role="dialog" aria-labelledby="movieDetails" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="movieName"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <img id="poster-modal">
+                            </div>
+                            <div class="col-sm-6 offset-sm-1">
+                                <h5>Overview</h5>
+                                <p class="lead" id="movie-overview"></p>
+                                <h5>Gener</h5>
+                                <p class="lead" id="movie-gener">ome text</p>
+                                <h5>Original Language</h5>
+                                <p class="lead" id="movie-original-lang">ome text</p>
+                                <h5>Relaease Date</h5>
+                                <p class="lead" id="movie-release-date">ome text</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-10 offset-sm-1">
+                                <iframe id="movie-trailer" width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <footer>
+        <div class="container">
+            <p class="text-center">&copy; Mashail Almuzaini & Hend Alfaifi 2017</p>
+        </div>
+    </footer>
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
